@@ -1,10 +1,10 @@
-# Ship a real change end to end
+## Ship a real change end to end
 
 This is the second project of the course. You'll take everything from Units 3 and 4 and ship one real change to the codebase from start to finish: plan it, build it, commit it cleanly, review it, and open a pull request — the way you'd ship a change for real.
 
-This builds on the same repository you set up in the first project. Each level's project adds to it, all the way to a shareable plugin at the end.
+This project builds on the same repository you set up in the first project. Each level's project adds to it, all the way to a shareable plugin at the end.
 
-## The repository
+### The repository
 
 You'll work on the course repo — the small Express API you gave a `CLAUDE.md` in the first project. The platform connects the repo for you; you'll do your work on a branch and submit that branch for review.
 
@@ -14,9 +14,9 @@ The files you'll touch here:
 - `db/store.js` — the in-memory data helper all routes go through
 - `tests/update-user.test.js` — the tests for your change (already written; don't edit them)
 
-## The change you'll ship
+### The change you'll ship
 
-Add an **"update a user"** endpoint to the users resource. It should:
+Add an **'update a user'** endpoint to the users resource. It should:
 
 - update an existing user by id (`PUT /users/:id`)
 - validate the input, rejecting missing or invalid fields with a clear error
@@ -27,9 +27,9 @@ The repo already contains the tests for this endpoint, in `tests/update-user.tes
 
 It's a small feature on purpose — small enough to finish, real enough to need planning, edge cases, and clean commits.
 
-## What you'll deliver
+### What you'll deliver
 
-On your branch of the repo:
+On your copy of the repo:
 
 - the working endpoint, with validation and a not-found response
 - a short `NOTES.md` explaining your choices
@@ -38,39 +38,39 @@ On your branch of the repo:
 
 The workflow steps below (planning, clean commits, a self-review, a clear PR description) are how you ship this well — and the habits the course is building. Grading is automatic, so it can only check the result: the tests passing. Do the workflow anyway; it's the point of the project.
 
-## Before you start
+### Before you start
 
 1. Finish Units 3 and 4.
 2. Have Claude Code installed and signed in (`claude --version`), and `gh auth login` done so Claude can open the pull request.
 3. Get the repo onto your machine (clone it, or open it from the platform), run `npm install`, and open a terminal in the project folder.
 
-## Tasks
+### Tasks
 
-### 1. See what "done" looks like
+#### 1. See what 'done' looks like
 
 Run `npm test`. The update-user tests fail — that's your target. Read `tests/update-user.test.js` to see exactly what the endpoint must do: update a user (200), return 404 for an unknown id, and 400 when a field is missing.
 
-### 2. Plan the change first
+#### 2. Plan the change first
 
 Start Claude and enter plan mode (Shift+Tab to read-only, or `claude --permission-mode plan`). Ask it to plan the feature. Read the plan before you approve anything: does it touch the right files (the route, `db/store.js`)? Does it handle the not-found and invalid-input cases the tests expect? If it misses something, edit the plan in plain language, then approve it.
 
-### 3. Choose your model
+#### 3. Choose your model
 
-Decide which model fits. The change has real design and then real implementation, so `opusplan` is a fair default — or plain Sonnet if you'd rather drive it yourself. Note which you chose for your `NOTES.md`.
+Decide which model fits. Note which you chose for your `NOTES.md`.
 
-### 4. Build it in logical commits
+#### 4. Build it in logical commits
 
 Let Claude work the plan, committing as you go — one logical change per commit, with messages Claude writes from the diff. Run `npm test` as you go; the update-user tests turn green once the endpoint is right. Each message should be understandable without opening the diff.
 
-### 5. Review before you push
+#### 5. Review before you push
 
 Before you open the pull request, ask Claude to review your changes — bugs, edge cases, the not-found path, the validation. Check what it flags yourself, decide what's real, and fix those. A green test run and a clean review are signals, not a guarantee.
 
-### 6. Open the pull request
+#### 6. Open the pull request
 
 Ask Claude to open a pull request for your branch. Read the description it generates: does it say what changed, why, and what a reviewer should test — including the not-found and invalid-input cases? Tighten it if it doesn't.
 
-### 7. Write your NOTES.md
+#### 7. Write your NOTES.md
 
 In a short `NOTES.md`, answer in a few sentences each:
 
@@ -79,7 +79,7 @@ In a short `NOTES.md`, answer in a few sentences each:
 - How did you split your commits, and why that way?
 - What did your review catch — or confirm was already fine?
 
-## Definition of done
+### Definition of done
 
 Grading is automatic — `npm test` must be green on your branch. That single check covers:
 
@@ -88,14 +88,14 @@ Grading is automatic — `npm test` must be green on your branch. That single ch
 
 Then submit your branch as a pull request through the platform.
 
-## Submit
+### Submit
 
 1. Your work is already on a branch (Claude created it when you started). Confirm with `git status`.
 2. Make sure the commits are pushed — ask Claude to push, or:
    ```
    git push -u origin <your-branch>
    ```
-3. Open the pull request (if you didn't in Task 6) and submit it through the platform, which copies your branch for review.
+3. Open the pull request and submit it through the platform, which copies your branch for review.
 
 Before you submit, make sure that:
 
